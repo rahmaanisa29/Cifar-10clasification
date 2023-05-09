@@ -6,6 +6,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 from flask import Flask , render_template  , request , send_file
 from tensorflow.keras.preprocessing.image import load_img , img_to_array
+from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -122,5 +123,8 @@ def success():
 
 if __name__ == "__main__":
     app.run(debug = True)
+    
+    run_with_ngrok(app)
+	app.run()
 
 
